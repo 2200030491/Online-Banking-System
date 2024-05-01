@@ -2,12 +2,14 @@ const express = require('express');
 const cors = require('cors');
 const { MongoClient } = require('mongodb');
 const bcrypt = require('bcrypt');
+require("dotenv").config()
+
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-const client = new MongoClient('mongodb+srv://kesava:admin@cluster0.thchn8b.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true, useUnifiedTopology: true });
+const client = new MongoClient(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 async function connectToMongoDB() {
     try {
