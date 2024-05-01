@@ -32,4 +32,4 @@ const insertUser = async (request,response)=>{
     }
 }
 
-module.exports = {insertUser}
+module.exports = {insertUser,login}
